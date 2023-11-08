@@ -8,18 +8,20 @@
 <body>
 
     <?php    
-
+        // Shows if there are any errors in the code
         error_reporting(E_ALL);
-        ini_set('display_errors', 'On'); 
+        ini_set('display_errors', 'On');
+
         // servername => localhost
-        // username => root
-        // password => empty
-        // database name => staff
         $servername = "localhost";
+        // username => root
         $username = "root";
-        $password = "";
+        // password => empty
+        $password = ""; 
+        // database name => staff
         $dbname = "crud_app";
         
+        //Makes new connection to database
         $conn = new mysqli($servername, $username, $password, $dbname);
  
         // Checks if $conn is connected to database
@@ -34,9 +36,9 @@
         $product_ID = $_POST['productID'];
 
         // Performing insert query execution
-        // here our table name is college
         $sql = "UPDATE products SET name = '$product_name' WHERE id = '$product_ID' ";
 
+        //Checks if form have been submtited then closing connection
         if ($conn->query($sql) === TRUE) {
             $conn -> close();
             echo "Data Sent";
@@ -45,7 +47,7 @@
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
 
-
+        //Closes the connection
         $conn->close();
        
       

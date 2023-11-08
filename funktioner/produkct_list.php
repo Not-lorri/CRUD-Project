@@ -10,57 +10,58 @@
 </head>
 <body>
     
-    <?php    
-       // Shows if there are any errors in the code
-       error_reporting(E_ALL);
-       ini_set('display_errors', 'On');
+   <?php    
+      // Shows if there are any errors in the code
+      error_reporting(E_ALL);
+      ini_set('display_errors', 'On');
        
-       // Make a new connection
-       $conn = new mysqli("localhost", "root", "", "crud_app");
+      // Make a new connection
+      $conn = new mysqli("localhost", "root", "", "crud_app");
         
-       // Checks if $conn is connected to database
-        if ($conn -> connect_error) {
-           die("Connection Failed: " . $conn->connect_error);
-        } else {
-           echo "Connected!";
-        }
+      // Checks if $conn is connected to database
+      if ($conn -> connect_error) {
+         die("Connection Failed: " . $conn->connect_error);
+      } else {
+         echo "Connected!";
+      }
        
-       $result = $conn -> query("SELECT id, name, description, price, image FROM products");
+      //Executing 
+      $result = $conn -> query("SELECT id, name, description, price, image FROM products");
         
-       if ($result->num_rows > 0) {
-           // Output data of each row
-           echo '<table id="listTable" class="table">';
-           echo '<h2 style="color:white;">TABLE</h2>';
-           echo '<thead>';
-           echo '<tr>';
-           echo '<th scope="col">Id</th>';
-           echo '<th scope="col">Name</th>';
-           echo '<th scope="col">Description</th>';
-           echo '<th scope="col">Price</th>';
-           echo '<th scope="col">Image</th>';
-           echo '</tr>';
-           echo '</thead>';
-           echo '<tbody class="table-group-divider">';
-           while ($row = $result -> fetch_assoc()) {
-               echo '<tr>';
-               echo '<th scope="row">' . $row["id"] . '</th>';
-               echo '<td>' . $row["name"] . '</td>';
-               echo '<td>' . $row["description"] . '</td>';
-               echo '<td>€' . $row["price"] . '</td>';
-               echo '<td><img src="img/' . $row["image"] . '" alt="' . $row["name"] . '" style="width:100px; height:120px;"/></td>';
+      // Prints all data into a table
+      if ($result->num_rows > 0) {
+         // Output data of each row
+         echo '<table id="listTable" class="table">';
+         echo '<h2 style="color:white;">TABLE</h2>';
+         echo '<thead>';
+         echo '<tr>';
+         echo '<th scope="col">Id</th>';
+         echo '<th scope="col">Name</th>';
+         echo '<th scope="col">Description</th>';
+         echo '<th scope="col">Price</th>';
+         echo '<th scope="col">Image</th>';
+         echo '</tr>';
+         echo '</thead>';
+         echo '<tbody class="table-group-divider">';
+         while ($row = $result -> fetch_assoc()) {
+            echo '<tr>';
+            echo '<th scope="row">' . $row["id"] . '</th>';
+            echo '<td>' . $row["name"] . '</td>';
+            echo '<td>' . $row["description"] . '</td>';
+            echo '<td>€' . $row["price"] . '</td>';
+            echo '<td><img src="img/' . $row["image"] . '" alt="' . $row["name"] . '" style="width:100px; height:120px;"/></td>';
             //    echo "<td>" . "<img src=".$row['image'].'>' . "</td>";
-               echo '</tr>';
-           }
-           echo '</tbody>';
-           echo '</table>';
-        }  else {
-           echo "0 Results";
-        }
+            echo '</tr>';
+         }
+            echo '</tbody>';
+            echo '</table>';
+         }  else {
+            echo "0 Results";
+      }
 
-       $conn->close();
-    
-    
-    ?>
+      $conn->close();
+   
+   ?>
 
 
 
