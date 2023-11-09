@@ -7,15 +7,6 @@
 </head>
 <body>   
 
-    <div class="navbar  m-2">
-      <h1>Crud App</h1>
-      <nav class="m-2">
-             <button type="submit"><a href="http://localhost/lost/">HOME</a></button>
-      </nav>
-    </div> 
-
-
-
     <?php    
 
         error_reporting(E_ALL);
@@ -43,7 +34,24 @@
 
         if ($conn->query($sql) === TRUE) {
             $conn->close();
-            echo "Data Sent";
+            // echo "Data Sent";
+            echo '
+                <div class="container position-absolute top-50 start-50 translate-middle ">
+                    <div class="container d-flex justify-content-center">
+                        <div class="d-flex justify-content-center>
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Data Sent!</h5>
+                                        <p class="card-text">Data has succesfully been sent</p>
+                                        <a href="http://localhost/lost/" class="btn btn-primary">Go Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ';
         } else {
             $conn->close();
             echo "Error: " . $sql . "<br>" . $conn->error;
