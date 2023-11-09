@@ -7,114 +7,58 @@
 </head>
 <body>   
 
-    <!-- <div class="navbar  m-2">
-      <h1>Crud App</h1>
-      <nav class="m-2">
-             <button type="submit"><a href="http://localhost/lost/">HOME</a></button>
-      </nav>
-    </div>  -->
-
-    <div class="navbar  m-2">
-      <h1>Crud App</h1>
-      <nav class="m-2">
-         <button class="btn btn-primary" type="button" id="add">Add</button>
-         <button class="btn btn-primary" type="button" id="del">Delete</button> 
-         <button class="btn btn-primary" type="button" id="change">Change</button>
-         <button class="btn btn-primary" id="list">List</button>     
-      </nav>
-   </div> 
-
-
-    <div class="container d-flex">
-
-      <!-- Add product form  -->
-        <div id="popUpForm">
-            <form action="funktioner/add_product.php" method="post" class="ajax-form" >
-              <legend>Add Product</legend>
-              <label for="productName">Name</label>
-              <input type="text" id="productName" name="productName"><br><br>
-
-              <label for="productPrice">Price</label>
-              <input type="number" id="productPrice" name="productPrice"><br><br>
-
-              <label for="productDescription">Description</label>
-              <input type="text" id="productDescription" name="productDescription"><br><br>
-
-              <label for="productImage">Image</label>
-              <input type="file" id="productImage" name="productImage"><br><br>
-
-              <input type="submit" value="Submit" name="addBatton" >
-              <input type="reset" value="Reset">
-            </form>
-        </div>
- 
-      <!-- Delete product form -->
-        <div id="deleteForm">
-            <form action="funktioner/delete_product.php" method="post" class="ajax-form">
-              <legend>Delete Product</legend>
-              <label for="productID">ID</label>
-              <input type="number" id="productID" name="productID"><br><br>
-
-              <input type="submit" value="Submit" id="submit">
-              <input type="reset" value="Reset">
-            </form>
-        </div>
-
-      <!-- Update product form -->
-        <div id="updateForm">
-            <form action="funktioner/edit_product.php" method="post" class="ajax-form">
-              <legend>Change</legend>
-
-              <label for="productID">ID</label>
-              <input type="int" id="productID" name="productID"><br><br>
-
-              <label for="productUpdateName">Name</label>
-              <input type="text" id="productUpdateName" name="productUpdateName"><br><br>
-
-              <input type="submit" value="Submit" id="submit">
-              <input type="reset" value="Reset">
-            </form>
-        </div>
-
-
-
-      <!-- Displays data into this container  -->
-      <div class="container-sm bg-dark" id="placeToLoad" style="display:none; width:50rem; border:solid 1px black; height:40rem; overflow:scroll;"></div>
-    </div>
-
-
-
-
-
     <?php    
-
+        // Shows if there are any errors in the code
         error_reporting(E_ALL);
         ini_set('display_errors', 'On'); 
+
+        
         // servername => localhost
-        // username => root
-        // password => empty
-        // database name => staff
         $servername = "localhost";
+        // username => root
         $username = "root";
+        // password => empty
         $password = "";
+        // database name => crud_app
         $dbname = "crud_app";
         
+        // Makes a new connection to database
         $conn = new mysqli($servername, $username, $password, $dbname);
  
         // Taking all 5 values from the form data(input)
-        $product_name =  $_REQUEST['productName'];
-        $product_price = $_REQUEST['productPrice'];
-        $product_descript = $_REQUEST['productDescription'];
-        $product_img = $_REQUEST['productImage'];
+        $product_name =  $_REQUEST['productName'];  // Id for products name
+        $product_price = $_REQUEST['productPrice']; // Id for products price
+        $product_descript = $_REQUEST['productDescription']; // Id for products description
+        $product_img = $_REQUEST['productImage']; // Id for products image
         
        
         // Performing insert query execution
         $sql = "INSERT INTO products (`name`, `description`, `price`, `image`) VALUES ('$product_name', '$product_descript','$product_price','$product_img')";
 
+        //Checks if execution is success
         if ($conn->query($sql) === TRUE) {
+            // Closing the connection after execution is success
             $conn->close();
-            echo "Data Sent";
+            // Ask user if user want to go back to index
+            echo '
+                <div class="container position-absolute top-50 start-50 translate-middle ">
+                    <div class="container d-flex justify-content-center">
+                        <div class="d-flex justify-content-center>
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Data Sent!</h5>
+                                        <p class="card-text">Product has been succesfully added </p>
+                                        <a href="http://localhost/lost/" class="btn btn-primary">Go Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ';
         } else {
+            //If not, it gives an error and  it closes for safety purposes
             $conn->close();
             echo "Error: " . $sql . "<br>" . $conn->error;
         };
@@ -123,7 +67,7 @@
 
 
 
-
+    <!-- These are scripts -->
    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
    <script src="js/script.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>

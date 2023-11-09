@@ -24,30 +24,48 @@
         // Makes a new connection to database
         $conn = new mysqli($servername, $username, $password, $dbname);
  
+
         // Checks if $conn is connected to database
-        if ($conn -> connect_error) {
-            die("Connection Failed: " . $conn->connect_error);
-        } else {
-            echo "Connected!";
-        }
+        // if ($conn -> connect_error) {
+        //     die("Connection Failed: " . $conn->connect_error);
+        // } else {
+        //     echo "Connected!";
+        // }
+
 
         // Taking values from the form data(input)
-        $product_ID =  $_REQUEST['productID'];
+        $product_ID =  $_REQUEST['productID']; // Forms input id for the products 
 
         // Performing insert query execution
         $sql = "DELETE FROM products WHERE id = ('$product_ID')";
 
-        //Checks if form have been submtited then closing connection
+        //Checks if execution is success
         if ($conn->query($sql) === TRUE) {
-            $conn->close();
-            echo "Data Sent";
+            // Closing the connection after execution is success
+            $conn->close();   
+            // Ask user if user want to go back to index
+            echo '
+                <div class="container position-absolute top-50 start-50 translate-middle ">
+                    <div class="container d-flex justify-content-center">
+                        <div class="d-flex justify-content-center>
+                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h5 class="card-title">Data Sent!</h5>
+                                        <p class="card-text">Product has been deleted succesfully</p>
+                                        <a href="http://localhost/lost/" class="btn btn-primary">Go Back</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            ';
         } else {
+            //If not, it gives an error and  it closes for safety purposes
             $conn->close();
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
-
-        //Closes the connection for safety purposes
-        $conn->close();
 
     ?>
 
