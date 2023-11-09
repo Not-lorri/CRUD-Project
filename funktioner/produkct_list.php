@@ -49,7 +49,7 @@
             echo '<td>' . $row["name"] . '</td>';
             echo '<td>' . $row["description"] . '</td>';
             echo '<td>€' . $row["price"] . '</td>';
-            echo '<td><img src="img/' . $row["image"] . '" alt="' . $row["name"] . '" style="width:100px; height:120px;"/></td>';
+            echo '<td><img src="img/' . $row["image"] . '" alt="' . $row["name"] . '" style="width:400px; height:200px;"/></td>';
             //    echo "<td>" . "<img src=".$row['image'].'>' . "</td>";
             echo '</tr>';
          }
