@@ -9,7 +9,7 @@
 <body>
 
    <div class="navbar  m-2">
-      <h1>Crudtest App</h1>
+      <h1>Crud App</h1>
       <nav class="m-2">
          <button class="btn btn-primary" type="button" id="add">Add</button>
          <button class="btn btn-primary" type="button" id="del">Delete</button> 
@@ -23,50 +23,54 @@
 
       <!-- Add product form  -->
       <div id="popUpForm">
-         <form action="funktioner/add_product.php" method="post" class="ajax-form" >
-            <legend>Add Product</legend>
-            <label for="productName">Name</label>
-            <input type="text" id="productName" name="productName"><br><br>
+         <form action="funktioner/add_product.php" method="post" class="ajax-form border bg-light-subtle" >
+            <legend class="text-center">Add Product</legend>
+            <label class="form-label" for="productName"> Name</label>
+            <input class="form-control" type="text" id="productName" name="productName"required><br><br>
 
-            <label for="productPrice">Price</label>
-            <input type="number" id="productPrice" name="productPrice"><br><br>
+            <label  class="form-label" for="productPrice">Price</label>
+            <input class="form-control" type="number" id="productPrice" name="productPrice" min="1"required><br><br>
 
-            <label for="productDescription">Description</label>
-            <input type="text" id="productDescription" name="productDescription"><br><br>
+            <label class="form-label" for="productDescription">Description</label>
+            <input class="form-control" type="text" id="productDescription" name="productDescription"required><br><br>
 
-            <label for="productImage">Image</label>
-            <input type="file" id="productImage" name="productImage"><br><br>
-
-            <input type="submit" value="Submit" name="addBatton" >
-            <input type="reset" value="Reset">
-         </form>
+            <label class="form-label" for="productImage">Image</label>
+            <input class="form-control" type="file" id="productImage" name="productImage"required><br>
+           
+            <div class="d-flex justify-content-center">
+              <input class="btn btn-primary m-1" type="submit" value="Submit" name="addBatton" >
+              <input class="btn btn-primary m-1"  type="reset" value="Reset">
+            </div>
+         </form> 
       </div>
  
       <!-- Delete product form -->
       <div id="deleteForm">
-         <form action="funktioner/delete_product.php" method="post" class="ajax-form">
-            <legend>Delete Product</legend>
-            <label for="productID">ID</label>
-            <input type="number" id="productID" name="productID"><br><br>
+         <form action="funktioner/delete_product.php" method="post" class="ajax-form border bg-light-subtle">
+            <legend class="text-center">Delete Product</legend>
+            <label class="form-label" for="productID">ID</label>
+            <input class="form-control" type="number" id="productID" name="productID"required><br>
 
-            <input type="submit" value="Submit" id="submit">
-            <input type="reset" value="Reset">
+            <div class="d-flex justify-content-center">
+             <input class="btn btn-primary" type="submit" value="Submit" id="submit">
+             <input class="btn btn-primary" type="reset" value="Reset">
+           </div>  
          </form>
       </div>
 
       <!-- Update product form -->
       <div id="updateForm">
-         <form action="funktioner/edit_product.php" method="post" class="ajax-form">
+         <form action="funktioner/edit_product.php" method="post" class="ajax-form border bg-light-subtle">
             <legend>Change</legend>
 
             <label for="productID">ID</label>
             <input type="int" id="productID" name="productID"><br><br>
 
             <label for="productUpdateName">Name</label>
-            <input type="text" id="productUpdateName" name="productUpdateName"><br><br>
+            <input type="text" id="productUpdateName" name="productUpdateName"><br>
 
-            <input type="submit" value="Submit" id="submit">
-            <input type="reset" value="Reset">
+            <input class="btn btn-primary" type="submit" value="Submit" id="submit">
+            <input class="btn btn-primary" type="reset" value="Reset">
          </form>
       </div>
 

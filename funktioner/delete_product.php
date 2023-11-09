@@ -8,7 +8,7 @@
 <body>
 
     <?php    
-        // Shows if there are any errors in the code
+        // Shows if error occurs
         error_reporting(E_ALL);
         ini_set('display_errors', 'On'); 
         
@@ -18,18 +18,11 @@
         $username = "root";
         // password => empty
         $password = "";
-        // database name => staff
+        // database name => crud_app
         $dbname = "crud_app"; 
         
         // Makes a new connection to database
         $conn = new mysqli($servername, $username, $password, $dbname);
- 
-        // Checks if $conn is connected to database
-        if ($conn -> connect_error) {
-            die("Connection Failed: " . $conn->connect_error);
-        } else {
-            echo "Connected!";
-        }
 
         // Taking values from the form data(input)
         $product_ID =  $_REQUEST['productID'];
@@ -37,7 +30,7 @@
         // Performing insert query execution
         $sql = "DELETE FROM products WHERE id = ('$product_ID')";
 
-        //Checks if form have been submtited then closing connection
+        //Checks if execution is success
         if ($conn->query($sql) === TRUE) {
             $conn->close();
             echo '
@@ -58,13 +51,10 @@
                 </div>
             ';
         } else {
+            //If not, it closes for safety purposes
             $conn->close();
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
-
-        //Closes the connection for safety purposes
-        $conn->close();
-
     ?>
 
 
