@@ -78,33 +78,6 @@ const displayList = () => {
     
 }
 
-
-
-// $(document).ready(function() {
-//     $(".ajax-form").submit(function(event) {
-//         event.preventDefault(); // Prevent the default form submission behavior
-
-//         var form = $(this); // Get the form that triggered the submit event
-//         var formData = form.serialize();
-
-//         $.ajax({
-//             type: "POST",
-//             url: form.attr("action"), // Get the form's action attribute
-//             data: formData,
-//             success: function(response) {
-//                 // Handle the response for this specific form
-//                 console.log("Response: " + response);
-//             },
-//             error: function() {
-//                 console.log("Error: Unable to fetch response.");
-//             }
-//         });
-//     });
-// });
-
-
-
-
 buttonFunc();
 delButton();
 updateButton();
