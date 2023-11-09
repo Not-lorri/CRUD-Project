@@ -9,7 +9,7 @@
 <body>
 
    <div class="navbar  m-2">
-      <h1>Crud App</h1>
+      <h1>Crudtest App</h1>
       <nav class="m-2">
          <button class="btn btn-primary" type="button" id="add">Add</button>
          <button class="btn btn-primary" type="button" id="del">Delete</button> 
