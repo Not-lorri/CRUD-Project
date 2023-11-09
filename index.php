@@ -4,7 +4,7 @@
    <meta charset="UTF-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-   <title>CRUD</title>
+   <title>CRUD App</title>
 </head>
 <body>
 
@@ -24,52 +24,60 @@
 
       <!-- Add product form  -->
       <div id="popUpForm">
-         <form action="funktioner/add_product.php" method="post" class="ajax-form" >
-            <legend>Add Product</legend>
-            
-            <label for="productName">Name</label>
-            <input type="text" id="productName" name="productName" required><br><br>
+         <form action="funktioner/add_product.php" method="post" class="ajax-form border  bg-light-subtle" >
+            <legend class="text-center">Add Product</legend>
 
-            <label for="productPrice">Price</label>
-            <input type="number" id="productPrice" name="productPrice" required><br><br>
+            <label class="form-label"  for="productName">Name</label>
+            <input class="form-control" type="text" id="productName" name="productName" required><br><br>
 
-            <label for="productDescription">Description</label>
-            <input type="text" id="productDescription" name="productDescription" required><br><br>
+            <label class="form-label"  for="productPrice">Price</label>
+            <input class="form-control" type="number" id="productPrice" name="productPrice" required><br><br>
 
-            <label for="productImage">Image</label>
-            <input type="file" id="productImage" name="productImage" required><br><br>
+            <label class="form-label"  for="productDescription">Description</label>
+            <input class="form-control" type="text" id="productDescription" name="productDescription" required><br><br>
 
-            <input type="submit" value="Submit" name="addBatton" >
-            <input type="reset" value="Reset">
+            <label class="form-label"  for="productImage">Image</label>
+            <input class="form-control" type="file" id="productImage" name="productImage" required><br>
+        
+            <div class="d-flex justify-content-center">
+              <input class="btn btn-primary m-1" type="submit" value="Submit" name="addBatton" >
+              <input class="btn btn-primary m-1" type="reset" value="Reset">
+            </div>
+
          </form>
       </div>
  
       <!-- Delete product form -->
       <div id="deleteForm">
-         <form action="funktioner/delete_product.php" method="post" class="ajax-form">
-            <legend>Delete Product</legend>
+         <form action="funktioner/delete_product.php" method="post" class="ajax-form border  bg-light-subtle">
+            <legend class="text-center">Delete Product</legend>
 
-            <label for="productID">ID</label>
-            <input type="number" id="productID" name="productID" required><br><br>
+            <label class="form-label" for="productID">ID</label>
+            <input class="form-control" type="number" id="productID" name="productID" required><br>
 
-            <input type="submit" value="Submit" id="submit" required>
-            <input type="reset" value="Reset">
+            <div class="d-flex justify-content-center">
+             <input class="btn btn-primary m-1" type="submit" value="Submit" id="submit" required>
+             <input class="btn btn-primary m-1" type="reset" value="Reset">
+            </div>  
          </form>
       </div>
 
       <!-- Update product form -->
       <div id="updateForm">
-         <form action="funktioner/edit_product.php" method="post" class="ajax-form">
-            <legend>Change</legend>
+         <form action="funktioner/edit_product.php" method="post" class="ajax-form border  bg-light-subtle">
+            <legend class="text-center">Change</legend>
 
-            <label for="productID">ID</label>
-            <input type="int" id="productID" name="productID" required><br><br>
+            <label class="form-label"  for="productID">ID</label>
+            <input class="form-control" type="int" id="productID" name="productID" required><br><br>
 
-            <label for="productUpdateName">Name</label>
-            <input type="text" id="productUpdateName" name="productUpdateName" required><br><br>
+            <label class="form-label"  for="productUpdateName">Name</label>
+            <input class="form-control" type="text" id="productUpdateName" name="productUpdateName" required><br>
 
-            <input type="submit" value="Submit" id="submit">
-            <input type="reset" value="Reset">
+            <div class="d-flex justify-content-center">
+             <input class="btn btn-primary m-1" type="submit" value="Submit" id="submit">
+             <input class="btn btn-primary m-1" type="reset" value="Reset">
+            </div>
+
          </form>
       </div>
 
