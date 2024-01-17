@@ -22,7 +22,7 @@
    <div class="container d-flex">
 
       <!-- Add product form  -->
-      <div id="popUpForm">
+      <div id="popUpForm" class="me-5">
          <form action="funktioner/add_product.php" method="post" class="ajax-form border bg-light-subtle" >
             <legend class="text-center">Add Product</legend>
             <label class="form-label" for="productName"> Name</label>
@@ -59,25 +59,27 @@
       </div>
 
       <!-- Update product form -->
-      <div id="updateForm">
+      <div id="updateForm" class="ms-5">
          <form action="funktioner/edit_product.php" method="post" class="ajax-form border bg-light-subtle">
             <legend>Change</legend>
 
-            <label for="productID">ID</label>
-            <input type="int" id="productID" name="productID"><br><br>
+            <label for="productID"  class="form-label">ID</label>
+            <input type="int" id="productID"  class="form-control" name="productID"><br><br>
 
-            <label for="productUpdateName">Name</label>
-            <input type="text" id="productUpdateName" name="productUpdateName"><br>
-
-            <input class="btn btn-primary" type="submit" value="Submit" id="submit">
-            <input class="btn btn-primary" type="reset" value="Reset">
+            <label for="productUpdateName" class="form-label">Name</label>
+            <input type="text" id="productUpdateName" name="productUpdateName" class="form-control"><br>
+             
+            <div class="mt-2 d-flex justify-content-center">
+              <input class="btn btn-primary" type="submit" value="Submit" id="submit">
+              <input class="btn btn-primary" type="reset" value="Reset">
+            </div>
          </form>
       </div>
 
 
 
       <!-- Displays data into this container  -->
-      <div class="container-sm bg-dark" id="placeToLoad" style="display:none; width:50rem; border:solid 1px black; height:40rem; overflow:scroll;"></div>
+      <div class="container-sm ms-5 bg-dark" id="placeToLoad" style="display:none; width:50rem; border:solid 1px black; height:40rem; overflow:scroll;"></div>
    </div>
 
    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
